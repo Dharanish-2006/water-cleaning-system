@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #gallery {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        #gallery img {
+            max-width: 300px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload and View Images</h1>
+    <form id="upload-form" enctype="multipart/form-data">
+        <input type="file" id="image-input" name="image" accept="image/*" required>
+        <button type="submit">Upload Image</button>
+    </form>
+
+    <h2></h2>
+    <div id="gallery"></div>
+
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData();
+            const fileInput = document.getElementById('image-input');
+            formData.append('image', fileInput.files[0]);
+
+            // Send the image to the server
+            const response = await fetch('/upload', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+
+            if (data.success) {
+                alert('Image uploaded successfully!');
+                loadGallery();
+            } else {
+                alert('Upload failed');
+            }
+        });
+
+        // Function to load and display images from the server
+        async function loadGallery() {
+            const response = await fetch('/gallery');
+            const images = await response.json();
+            const gallery = document.getElementById('gallery');
+            gallery.innerHTML = '';
+            images.forEach(image => {
+                const img = document.createElement('img');
+                img.src = image.url;
+                gallery.appendChild(img);
+            });
+        }
+
+        // Load gallery on page load
+        loadGallery();
+    </script>
+</body>
+</html>
