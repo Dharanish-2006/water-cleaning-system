@@ -4,19 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Upload</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        #gallery {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        #gallery img {
-            max-width: 300px;
-            margin: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Upload and View Images</h1>
@@ -24,14 +12,12 @@
         <input type="file" id="image-input" name="image" accept="image/*" required>
         <button type="submit">Upload Image</button>
     </form>
-
-    <h2></h2>
+    <h2>problems near you</h2>
     <div id="gallery"></div>
 
     <script>
         document.getElementById('upload-form').addEventListener('submit', async function(e) {
             e.preventDefault();
-            
             const formData = new FormData();
             const fileInput = document.getElementById('image-input');
             formData.append('image', fileInput.files[0]);
