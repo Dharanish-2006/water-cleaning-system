@@ -2,7 +2,36 @@ body {
     font-family: Arial, sans-serif;
     background-color: black;
     color: white;
+    background-image: url('./bg.jpeg');
+    background-repeat: no-repeat;
+    background-size:cover;
 }
+
+.nav{
+    display: flex;
+    /* background-color: black; */
+    padding: 20px;
+    justify-content: space-around;
+}
+
+.nav img{
+    align-items: center;
+    height: 30px;
+    width: 30px;
+}
+
+.nav button{
+    background-color: transparent;
+    border: none;
+    color: white;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    letter-spacing: 2px;
+    gap: 20px;
+    cursor: pointer;
+}
+
 #gallery {
     display: flex;
     flex-wrap: wrap;
@@ -10,4 +39,8 @@ body {
 #gallery img {
     max-width: 300px;
     margin: 10px;
+}
+
+.upload_hide,.post_hide{
+    display: none;
 }

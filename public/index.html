@@ -7,13 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Upload and View Images</h1>
-    <form id="upload-form" enctype="multipart/form-data">
-        <input type="file" id="image-input" name="image" accept="image/*" required>
-        <button type="submit">Upload Image</button>
-    </form>
-    <h2>problems near you</h2>
-    <div id="gallery"></div>
+    <div class="nav">
+        <div class="home"><button><img src="./home.svg">Home</button></div>
+        <div class="upload"><button id="uplbtn" onclick="open('./home.svg')"><img src="./upload.svg" alt="">upload</button></div>
+        <div class="post"><button id="postbtn" onclick="open('post.html')"><img src="./post.svg" alt="">Post</button></div>
+        <div class="about"><button><img src="./aboutus.svg" alt="">About</button></div>
+        <div class="contact"><button><img src="./contact.svg" alt="">Contact us</button></div>
+    </div>
+
+    <div class="upload_hide" id="upload_hide">
+
+    </div>
+    <div class="post_hide" id="post_hide">
+        
+    </div>
 
     <script>
         document.getElementById('upload-form').addEventListener('submit', async function(e) {
