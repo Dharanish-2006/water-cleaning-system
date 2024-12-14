@@ -40,7 +40,3 @@ body {
     max-width: 300px;
     margin: 10px;
 }
-
-.upload_hide,.post_hide{
-    display: none;
-}

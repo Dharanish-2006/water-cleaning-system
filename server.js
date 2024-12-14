@@ -40,12 +40,21 @@ app.post('/upload', upload.single('image'), (req, res) => {
         res.json({ success: false, message: 'No file uploaded' });
     }
 });
-
-// Endpoint to get the image gallery
 app.get('/gallery', (req, res) => {
     res.json(imageUrls);
 });
-
+app.get('/post', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/post.html'))
+});
+app.get('/upload', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/upload.html'))
+});
+app.get('/about', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/about.html'))
+});
+app.get('/contact', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/contact.html'))
+});
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
