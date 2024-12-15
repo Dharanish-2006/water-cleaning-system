@@ -1,3 +1,5 @@
+
+
 body {
     width:inherit;
     height: inherit;
@@ -42,4 +44,35 @@ body {
 #gallery img {
     max-width: 300px;
     margin: 10px;
+}
+
+
+/* responsive */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav button {
+        width: 90%;
+        text-align: center;
+    }
+
+    .content {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav button {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    .nav button img {
+        width: 18px;
+        height: 18px;
+    }
 }
