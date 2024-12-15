@@ -1,4 +1,6 @@
 body {
+    width:inherit;
+    height: inherit;
     margin: 0px;
     padding: 0px;
     font-family: monospace,Arial,Helvetica,;
