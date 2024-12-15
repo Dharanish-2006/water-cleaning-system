@@ -9,7 +9,6 @@ body {
 
 .nav{
     display: flex;
-    /* background-color: black; */
     padding: 20px;
     justify-content: space-around;
 }
